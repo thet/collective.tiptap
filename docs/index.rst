@@ -1,0 +1,5 @@
+=================
+collective.tiptap
+=================
+
+User documentation
