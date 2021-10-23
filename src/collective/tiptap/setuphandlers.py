@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from Products.CMFPlone.interfaces import INonInstallable
 from zope.interface import implementer
 
@@ -11,12 +10,12 @@ class HiddenProfiles(object):
             "collective.tiptap:uninstall",
         ]
 
+    def getNonInstallableProducts(self):
+        """Hide the upgrades package from site-creation and quickinstaller.
 
-def post_install(context):
-    """Post install script"""
-    # Do something at the end of the installation of this package.
-
-
-def uninstall(context):
-    """Uninstall script"""
-    # Do something at the end of the uninstallation of this package.
+        Our upgrades profiles are defined in the directory 'upgrades'.
+        Plone sees this is a separate product. So instead of adding each
+        new upgrade profile to the list of non installable profiles
+        above, we can mark the upgrades product as non installable.
+        """
+        return ["plone.staticresources.upgrades"]

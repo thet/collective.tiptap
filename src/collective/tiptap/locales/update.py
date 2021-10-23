@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
-
 import os
+import pkg_resources
 import subprocess
 
-import pkg_resources
 
 domain = "collective.tiptap"
 os.chdir(pkg_resources.resource_filename(domain, ""))

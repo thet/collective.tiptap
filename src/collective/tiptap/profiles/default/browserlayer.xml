@@ -2,6 +2,6 @@
 <layers>
   <layer
       name="collective.tiptap"
-      interface="collective.tiptap.interfaces.ICollectiveTiptapLayer"
+      interface="collective.tiptap.interfaces.IBrowserLayer"
       />
 </layers>

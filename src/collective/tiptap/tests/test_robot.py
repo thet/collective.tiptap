@@ -1,12 +1,10 @@
-# -*- coding: utf-8 -*-
-import os
-import unittest
-
-import robotsuite
+from collective.tiptap.testing import COLLECTIVE_TIPTAP_ACCEPTANCE_TESTING  # noqa: E501
 from plone.app.testing import ROBOT_TEST_LEVEL
 from plone.testing import layered
 
-from collective.tiptap.testing import COLLECTIVE_TIPTAP_ACCEPTANCE_TESTING  # noqa: E501
+import os
+import robotsuite
+import unittest
 
 
 def test_suite():

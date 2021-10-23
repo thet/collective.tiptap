@@ -1,13 +1,10 @@
-# -*- coding: utf-8 -*-
-"""Setup tests for this package."""
+from collective.tiptap.testing import COLLECTIVE_TIPTAP_INTEGRATION_TESTING  # noqa: E501
+from plone import api
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+
 import unittest
 
-from plone import api
-from plone.app.testing import TEST_USER_ID, setRoles
-
-from collective.tiptap.testing import (  # noqa: E501
-    COLLECTIVE_TIPTAP_INTEGRATION_TESTING,
-)
 
 try:
     from Products.CMFPlone.utils import get_installer
@@ -33,12 +30,12 @@ class TestSetup(unittest.TestCase):
         self.assertTrue(self.installer.is_product_installed("collective.tiptap"))
 
     def test_browserlayer(self):
-        """Test that ICollectiveTiptapLayer is registered."""
+        """Test that IBrowserLayer is registered."""
         from plone.browserlayer import utils
 
-        from collective.tiptap.interfaces import ICollectiveTiptapLayer
+        from collective.tiptap.interfaces import IBrowserLayer
 
-        self.assertIn(ICollectiveTiptapLayer, utils.registered_layers())
+        self.assertIn(IBrowserLayer, utils.registered_layers())
 
 
 class TestUninstall(unittest.TestCase):
@@ -61,9 +58,9 @@ class TestUninstall(unittest.TestCase):
         self.assertFalse(self.installer.is_product_installed("collective.tiptap"))
 
     def test_browserlayer_removed(self):
-        """Test that ICollectiveTiptapLayer is removed."""
+        """Test that IBrowserLayer is removed."""
         from plone.browserlayer import utils
 
-        from collective.tiptap.interfaces import ICollectiveTiptapLayer
+        from collective.tiptap.interfaces import IBrowserLayer
 
-        self.assertNotIn(ICollectiveTiptapLayer, utils.registered_layers())
+        self.assertNotIn(IBrowserLayer, utils.registered_layers())
