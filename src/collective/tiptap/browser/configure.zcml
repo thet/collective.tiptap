@@ -2,4 +2,12 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser">
 
+  <browser:page
+      name="tiptap-test"
+      for="*"
+      template="test.pt"
+      layer="collective.tiptap.interfaces.IBrowserLayer"
+      permission="zope2.View"
+      />
+
 </configure>
